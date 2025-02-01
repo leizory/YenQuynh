@@ -1,0 +1,434 @@
+:root {
+    --primary-color: #FFB6C1;
+    --secondary-color: #FFF;
+    --text-color: #333;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: var(--secondary-color);
+    overflow-x: hidden;
+}
+
+.header {
+    height: 100vh;
+    background: url('flowers.jpg') center center/cover no-repeat;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Tạo container cho phần text */
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.main-title {
+    color: #000;
+    font-size: 3.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    animation: glow 2s ease-in-out infinite alternate;
+    background: rgba(255, 182, 193, 0.7);
+    padding: 1rem 2rem;
+    border-radius: 15px;
+    font-family: 'Dancing Script', cursive;
+    font-style: italic;
+}
+
+.profile-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid white;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    flex-shrink: 0;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery-section {
+    padding: 4rem 0;
+    background-color: #fafafa;
+}
+
+.gallery-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.gallery-item {
+    position: relative;
+    margin: 15px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    background: white;
+    padding: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-radius: 3px;
+    width: 280px;
+    height: 420px;
+    transform-origin: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 2px;
+    flex: 1;
+}
+
+.gallery-item .caption {
+    font-family: 'Dancing Script', cursive;
+    color: var(--text-color);
+    text-align: center;
+    padding: 10px 0;
+    font-size: 1.2rem;
+    margin-top: auto;
+    border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px) rotate(var(--rotation));
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Thêm hiệu ứng xoay ngẫu nhiên cho ảnh */
+.gallery-item:nth-child(odd) {
+    --rotation: -2deg;
+    transform: rotate(var(--rotation));
+}
+
+.gallery-item:nth-child(even) {
+    --rotation: 2deg;
+    transform: rotate(var(--rotation));
+}
+
+/* Responsive cho gallery */
+@media (max-width: 768px) {
+    .gallery-item {
+        width: 260px;
+        height: 400px;
+        margin: 15px;
+    }
+    
+    .gallery-item img {
+        height: 330px;
+    }
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    z-index: 1000;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 90vh;
+    margin: auto;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.close-modal {
+    position: absolute;
+    right: 25px;
+    top: 15px;
+    color: #f1f1f1;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px var(--primary-color);
+    }
+    to {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px var(--primary-color);
+    }
+}
+
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2rem;
+    }
+    
+    .profile-image {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .header {
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .header-content {
+        margin-bottom: 1.5rem;
+    }
+}
+
+.wishes-section {
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 0;
+    background: linear-gradient(45deg, #fff5f6, #fff);
+}
+
+.typing-text {
+    font-size: 1.8rem;
+    text-align: center;
+    color: var(--text-color);
+    padding: 2rem;
+    border-radius: 15px;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    animation: float 3s ease-in-out infinite;
+    font-family: 'Dancing Script', cursive;
+    font-style: italic;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+}
+
+.typing-text::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 182, 193, 0.1);
+    border-radius: 15px;
+    z-index: -1;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Thêm styles cho bong bóng */
+.bubbles-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.bubble {
+    position: absolute;
+    bottom: -20px;
+    background: rgba(255, 182, 193, 0.3);
+    border: 1px solid rgba(255, 182, 193, 0.5);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: float-up var(--duration) ease-in infinite;
+    opacity: 0;
+}
+
+@keyframes float-up {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-100vh) scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* Styles cho footer và chữ ký */
+.footer {
+    padding: 3rem 0;
+    background: linear-gradient(45deg, #fff5f6, #fff);
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.signature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 0;
+}
+
+.signature p {
+    font-size: 1rem;
+    color: #888;
+    margin-bottom: 0.5rem;
+    font-style: italic;
+}
+
+.signature h3 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-family: 'Dancing Script', cursive;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    font-style: italic;
+}
+
+.signature .subtitle {
+    font-family: 'Dancing Script', cursive;
+    color: #888;
+    font-size: 1.2rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-style: italic;
+}
+
+.signature-line {
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+    margin-top: 1rem;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes signature-glow {
+    from {
+        width: 80px;
+        opacity: 0.5;
+    }
+    to {
+        width: 120px;
+        opacity: 1;
+    }
+}
+
+/* Styles cho nút điều khiển nhạc */
+.music-control {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+}
+
+.music-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 182, 193, 0.9);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.music-btn i {
+    color: white;
+    font-size: 1.2rem;
+}
+
+.music-btn:hover {
+    transform: scale(1.1);
+    background: var(--primary-color);
+}
+
+.music-btn.paused {
+    background: rgba(255, 182, 193, 0.6);
+}
+
+.music-btn.paused i {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px) rotate(var(--rotation));
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) rotate(var(--rotation));
+    }
+}
+
+.gallery-section h2 {
+    font-family: 'Dancing Script', cursive;
+    font-style: italic;
+    color: var(--text-color);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    position: relative;
+    display: inline-block;
+    padding: 0 30px;
+    margin: 0 auto 2rem;
+}
+
+.gallery-section h2::before,
+.gallery-section h2::after {
+    content: '✿';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+.gallery-section h2::before {
+    left: 0;
+}
+
+.gallery-section h2::after {
+    right: 0;
+}
+
+/* Thêm container cho tiêu đề gallery */
+.gallery-section .container h2 {
+    text-align: center;
+    width: fit-content;
+    margin: 0 auto 2rem;
+} 

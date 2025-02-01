@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌸</text></svg>">
+    <title>Chúc mừng sinh nhật Yến Quỳnh! 🎂</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://kit.fontawesome.com/1234567890.js" crossorigin="anonymous" defer></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- Thêm container cho bong bóng -->
+    <div class="bubbles-container"></div>
+    
+    <audio id="bgMusic" preload="auto" loop autoplay style="display: none;">
+        <source src="" type="audio/mpeg">
+    </audio>
+    
+    <div class="music-control">
+        <button id="toggleMusic" class="music-btn">
+            <i class="fas fa-pause"></i>
+        </button>
+    </div>
+    
+    <header class="header">
+        <div class="confetti-container"></div>
+        <div class="header-content">
+            <h1 class="main-title" data-aos="fade-down">
+                Chúc mừng sinh nhật Yến Quỳnh nèe!
+            </h1>
+        </div>
+        <div class="profile-image" data-aos="zoom-in">
+            <img src="" alt="Yến Quỳnh">
+        </div>
+    </header>
+
+    <section class="wishes-section">
+        <div class="container">
+            <div class="typing-text" data-aos="fade-up"></div>
+        </div>
+    </section>
+
+    <section class="gallery-section">
+        <div class="container">
+            <h2 data-aos="fade-up">Ảnh của bé</h2>
+            <div class="gallery-grid" id="galleryGrid"></div>
+        </div>
+    </section>
+
+    <div class="modal" id="imageModal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="signature">
+                <p>A gift from</p>
+                <h3>Trọng Nhân</h3>
+                <div class="signature-line"></div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html> 
